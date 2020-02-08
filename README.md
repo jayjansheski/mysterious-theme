@@ -1,3 +1,3 @@
 # MysteriousTheme
 
-A description of this package.
+Not yet a thing.
