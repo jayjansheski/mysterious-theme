@@ -5,12 +5,13 @@
 */
 
 import Plot
+import Publish
 
 public extension Theme {
     static var mysterious: Self {
         Theme(
             htmlFactory: MysteriousHTMLFactory(),
-            resourcePaths: ["Resources/MysteriousTheme/styles.css"]
+            resourcePaths: ["Resources/MysteriousTheme/styles.css", "Resources/MysteriousTheme/Coustard.woff2"]
         )
     }
 }
@@ -24,12 +25,10 @@ private struct MysteriousHTMLFactory<Site: Website>: HTMLFactory {
             .body(
                 .header(for: context, selectedSection: nil),
                 .wrapper(
-                    .h1(.text(index.title)),
+                    .h1(.text("\(index.title)")),
                     .p(
-                        .class("description"),
-                        .text(context.site.description)
+                        .class("description")
                     ),
-                    .h2("Latest content"),
                     .itemList(
                         for: context.allItems(
                             sortedBy: \.date,
@@ -52,6 +51,7 @@ private struct MysteriousHTMLFactory<Site: Website>: HTMLFactory {
                 .header(for: context, selectedSection: section.id),
                 .wrapper(
                     .h1(.text(section.title)),
+                    .h2("blah"),
                     .itemList(for: section.items, on: context.site)
                 ),
                 .footer(for: context.site)
@@ -75,6 +75,9 @@ private struct MysteriousHTMLFactory<Site: Website>: HTMLFactory {
                         ),
                         .span("Tagged with: "),
                         .tagList(for: item, on: context.site)
+                    ),
+                    .p(
+                        .text("hello hello helloooo")
                     )
                 ),
                 .footer(for: context.site)
@@ -190,7 +193,7 @@ private extension Node where Context == HTML.BodyContext {
                 .li(.article(
                     .h1(.a(
                         .href(item.path),
-                        .text(item.title)
+                        .text("\(item.title)")
                     )),
                     .tagList(for: item, on: site),
                     .p(.text(item.description))
