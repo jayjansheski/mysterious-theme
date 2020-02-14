@@ -11,7 +11,10 @@ public extension Theme {
     static var mysterious: Self {
         Theme(
             htmlFactory: MysteriousHTMLFactory(),
-            resourcePaths: ["Resources/MysteriousTheme/styles.css", "Resources/MysteriousTheme/Coustard.woff2"]
+            resourcePaths: ["Resources/MysteriousTheme/styles.css",
+                            "Resources/MysteriousTheme/Coustard.woff2",
+                            "Resources/MysteriousTheme/IBMPlexSerifLatinExt.woff2",
+                            "Resources/MysteriousTheme/IBMPlexSerifLatin.woff2"]
         )
     }
 }
@@ -170,7 +173,7 @@ private extension Node where Context == HTML.BodyContext {
 
         return .header(
             .wrapper(
-                .a(.class("site-name"), .href("/"), .text(context.site.name)),
+                .h1(.a(.class("site-name"), .href("/"), .text(context.site.name))),
                 .if(sectionIDs.count > 1,
                     .nav(
                         .ul(.forEach(sectionIDs) { section in

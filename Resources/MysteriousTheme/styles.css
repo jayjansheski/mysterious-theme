@@ -14,6 +14,26 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('IBM Plex Serif'), local('IBMPlexSerif'), url(/IBMPlexSerifLatinExt.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('IBM Plex Serif'), local('IBMPlexSerif'), url(/IBMPlexSerifLatin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 
 * {
     margin: 0;
@@ -24,7 +44,8 @@
 body {
     background: #fff;
     color: #000;
-    font-family: "Coustard", Helvetica, Arial;
+    font-family: "IBM Plex Serif", Helvetica, Arial;
+    line-height: 1.4rem;
     text-align: center;
 }
 
@@ -68,6 +89,10 @@ nav li {
 
 nav li a.selected {
     text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Coustard", Georgia, Serif;
 }
 
 h1 {
@@ -151,6 +176,32 @@ a {
 footer {
     color: #8a8a8a;
 }
+
+img.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+figure {
+    margin: 1.3rem 0 1rem;
+}
+
+figure figcaption {
+    color: #555555;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1rem;;
+}
+
+.preposition {
+    opacity: 0.6;
+}
+
+
 
 /*@media (prefers-color-scheme: dark) {*/
 /*    body {*/
